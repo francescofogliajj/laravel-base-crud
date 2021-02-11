@@ -25,7 +25,7 @@
                     <td>{{ $item->id }}</td>
                     <td>{{ $item->name }}</td>
                     <td>{{ $item->brand }}</td>
-                    <td>{{ $item->price }}</td>
+                    <td>{{ number_format($item->price, 2) }}</td>
                     <td>{{ $item->alcohol_content }}</td>
                     <td>{{ $item->description }}</td>
                     <td>{{ $item->created_at }}</td>
