@@ -39,12 +39,22 @@ class BeerController extends Controller
     {
         $data = $request->all();
 
+        $request->validate(
+            [
+                'name' => 'required|max:40',
+                'brand' => 'required|max:30',
+                'price' => 'required|numeric',
+                'alcohol_content' => 'required|numeric'
+            ]
+        );
+
         $beer = new Beer();
-        $beer->name = $data["name"];
-        $beer->brand = $data["brand"];
-        $beer->price = $data["price"];
-        $beer->alcohol_content = $data["alcohol_content"];
-        $beer->description = $data["description"];
+        // $beer->name = $data["name"];
+        // $beer->brand = $data["brand"];
+        // $beer->price = $data["price"];
+        // $beer->alcohol_content = $data["alcohol_content"];
+        // $beer->description = $data["description"];
+        $beer->fill($data);
         $result = $beer->save();
 
         $newBeer = Beer::orderBy('id', 'DESC')->first();
