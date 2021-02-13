@@ -13,7 +13,7 @@
                 <th>Marca</th>
                 <th>Prezzo</th>
                 <th>Gradazione</th>
-                <th>Descrizione</th>
+                {{-- <th>Descrizione</th> --}}
                 <th>Creato il</th>
                 <th>Aggiornato il</th>
                 <th></th>
@@ -27,11 +27,18 @@
                     <td>{{ $item->brand }}</td>
                     <td>{{ number_format($item->price, 2) }}</td>
                     <td>{{ $item->alcohol_content }}</td>
-                    <td>{{ $item->description }}</td>
+                    {{-- <td>{{ $item->description }}</td> --}}
                     <td>{{ $item->created_at }}</td>
                     <td>{{ $item->updated_at }}</td>
                     <td>
-                        <a href="{{ route('beers.show', $item->id) }}" class="btn btn-outline-light">Mostra</a>
+                        <a href="{{ route('beers.show', $item->id) }}" class="btn btn-outline-light">
+                            <i class="fas fa-search-plus"></i>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{{ route('beers.edit', $item->id) }}" class="btn btn-outline-light">
+                            <i class="fas fa-pencil-alt"></i>
+                        </a>
                     </td>
                 </tr> 
             @endforeach
