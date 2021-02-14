@@ -113,8 +113,15 @@ class BeerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Beer $beer)
+    // public function destroy($id)
     {
-        //
+        // $beer = Beer::findOrFail($id);
+        $name = $beer->name;
+        $beer->delete();
+
+        return redirect()
+            ->route('beers.index')
+            ->with('message', "Birra '". $name ."' eliminata correttamente!");
     }
 }

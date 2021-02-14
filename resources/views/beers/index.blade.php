@@ -23,6 +23,8 @@
                 <th>Creato il</th>
                 <th>Aggiornato il</th>
                 <th></th>
+                <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -46,6 +48,15 @@
                             <i class="fas fa-pencil-alt"></i>
                         </a>
                     </td>
+                    <td>
+                        <form action="{{ route('beers.destroy', $item->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-outline-light">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </form>
+                    </td> 
                 </tr> 
             @endforeach
         </tbody>

@@ -59,4 +59,3 @@
         <a href="{{ route('beers.index') }}" class="btn btn-secondary">Indietro</a>
     </form>
 @endsection
-
