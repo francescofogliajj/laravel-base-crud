@@ -5,6 +5,12 @@
 @endsection
 
 @section('content')
+    @if (session('message'))
+        <div class="alert alert-success">
+            {{ session('message') }}
+        </div>
+    @endif
+
     <table class="table table-dark table-striped table-bordered">
         <thead>
             <tr>
