@@ -33,7 +33,7 @@
                     <td>{{ $item->id }}</td>
                     <td>{{ $item->name }}</td>
                     <td>{{ $item->brand }}</td>
-                    <td>{{ number_format($item->price, 2) }}</td>
+                    <td>{!! number_format($item->price, 2) . " &euro;" !!}</td>
                     <td>{{ $item->alcohol_content }}</td>
                     {{-- <td>{{ $item->description }}</td> --}}
                     <td>{{ $item->created_at }}</td>
@@ -49,7 +49,7 @@
                         </a>
                     </td>
                     <td>
-                        <form action="{{ route('beers.destroy', $item->id) }}" method="POST">
+                        <form action="{{ route('beers.destroy', $item->id) }}" method="POST" onSubmit="return confirm('Sei sicuro di voler eliminare questa birra?')">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-outline-light">
