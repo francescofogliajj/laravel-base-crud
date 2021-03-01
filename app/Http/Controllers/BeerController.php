@@ -45,7 +45,7 @@ class BeerController extends Controller
     {
         $data = $request->all();
 
-        $request->validate($this->bookValidation);
+        $request->validate($this->beerValidation);
 
         $beer = new Beer();
         // $beer->name = $data["name"];
@@ -98,7 +98,7 @@ class BeerController extends Controller
     {
         $data = $request->all();
 
-        $request->validate($this->bookValidation);
+        $request->validate($this->beerValidation);
 
         $beer->update($data);
 
